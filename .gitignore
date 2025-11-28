@@ -1,0 +1,33 @@
+# SQL Project .gitignore
+
+# Database files
+*.mdf
+*.ldf
+*.bak
+*.trn
+
+# Query results
+*.sqlplan
+*.stats
+
+# Logs
+*.log
+
+# Sensitive data
+*.csv
+*.xlsx
+*.xls
+data/
+*.db
+*.sqlite
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
