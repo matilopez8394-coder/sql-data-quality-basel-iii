@@ -217,8 +217,6 @@ SELECT
 FROM test_data_quality.facilities
 WHERE ABS(ead - (outstanding_balance + (facility_amount - outstanding_balance) * ccf)) > 0.01;
 
-select * from test_data_quality.facilities;
-
 -- Verify Expected Loss calculation
 SELECT 
     facility_id,
