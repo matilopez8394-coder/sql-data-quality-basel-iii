@@ -118,8 +118,8 @@ INSERT INTO clients VALUES
 (2, 'Global Trade Ltd', 'SME', 'Retail', 'UK', 'BBB', 'BBB', 'Jane Doe', '2019-03-20', '2024-05-15', TRUE),
 (3, 'Tech Innovations Inc', 'Corporate', 'Technology', 'Germany', 'AA', 'AA-', 'Mike Johnson', '2021-06-10', '2024-07-20', TRUE),
 (4, 'Energy Solutions SA', 'SME', 'Energy', 'Spain', 'BB', 'BB+', 'Sarah Williams', '2018-11-05', '2024-04-10', TRUE),
-(5, 'John Doe', 'Retail', 'Individual', 'Spain', 'A', NULL, 'Maria Garcia', '2022-03-15', '2024-08-20', TRUE),
-(6, 'Maria Rodriguez', 'Retail', 'Individual', 'UK', 'BBB', NULL, 'Peter Brown', '2021-09-10', '2024-07-15', TRUE);
+(5, 'John Doe', 'Retail', 'Retail Banking', 'Spain', 'A', NULL, 'Maria Garcia', '2022-03-15', '2024-08-20', TRUE),
+(6, 'Maria Rodriguez', 'Retail', 'Retail Banking', 'UK', 'BBB', NULL, 'Peter Brown', '2021-09-10', '2024-07-15', TRUE);
 
 -- Insert sample products
 INSERT INTO products VALUES
@@ -133,13 +133,13 @@ INSERT INTO products VALUES
 
 -- Insert clean facilities (all valid data)
 INSERT INTO facilities VALUES
-(1001, 1, 101, 5000000.00, 4500000.00, 'USD', 0.015000, 0.4500, 4500000.00, 1.0, 30375.00, 2250000.00, 180000.00, '2024-01-15', '2023-01-15', '2028-01-15', 'Active'),
-(1002, 2, 102, 2000000.00, 1800000.00, 'GBP', 0.025000, 0.5000, 1800000.00, 0.75, 22500.00, 1350000.00, 108000.00, '2024-01-15', '2023-03-20', '2026-03-20', 'Active'),
-(1003, 3, 103, 1000000.00, 950000.00, 'EUR', 0.008000, 0.3000, 950000.00, 0.50, 2280.00, 190000.00, 15200.00, '2024-01-15', '2024-01-10', '2025-01-10', 'Active'),
-(1004, 4, 104, 500000.00, 450000.00, 'EUR', 0.035000, 0.6000, 450000.00, 1.0, 9450.00, 450000.00, 36000.00, '2024-01-15', '2024-02-01', '2025-02-01', 'Active'),
-(2001, 5, 201, 15000.00, 12000.00, 'EUR', 0.030000, 0.8000, 12000.00, 1.0, 288.00, 12000.00, 960.00, '2024-01-15', '2022-03-15', NULL, 'Active'),
-(2002, 5, 202, 250000.00, 240000.00, 'EUR', 0.010000, 0.3500, 240000.00, 1.0, 840.00, 84000.00, 6720.00, '2024-01-15', '2022-03-15', '2052-03-15', 'Active'),
-(2003, 6, 203, 25000.00, 22000.00, 'GBP', 0.020000, 0.7000, 22000.00, 1.0, 308.00, 16500.00, 1320.00, '2024-01-15', '2023-09-10', '2028-09-10', 'Active');
+(1001, 1, 101, 5000000.00, 4500000.00, 'USD', 0.015000, 0.4500, 5000000.00, 1.0, NULL, NULL, NULL, NULL, '2023-01-15', '2028-01-15', 'Active'),
+(1002, 2, 102, 2000000.00, 1800000.00, 'GBP', 0.025000, 0.5000, 1950000.00, 0.75, NULL, NULL, NULL, NULL, '2023-03-20', '2026-03-20', 'Active'),
+(1003, 3, 103, 1000000.00, 950000.00, 'EUR', 0.008000, 0.3000, 975000.00, 0.50, NULL, NULL, NULL, NULL, '2024-01-10', '2025-01-10', 'Active'),
+(1004, 4, 104, 500000.00, 450000.00, 'EUR', 0.035000, 0.6000, 500000.00, 1.0, NULL, NULL, NULL, NULL, '2024-02-01', '2025-02-01', 'Active'),
+(2001, 5, 201, 15000.00, 12000.00, 'EUR', 0.030000, 0.8000, 15000.00, 1.0, NULL, NULL, NULL, NULL, '2022-03-15', NULL, 'Active'),
+(2002, 5, 202, 250000.00, 240000.00, 'EUR', 0.010000, 0.3500, 250000.00, 1.0, NULL, NULL, NULL, NULL, '2022-03-15', '2052-03-15', 'Active'),
+(2003, 6, 203, 25000.00, 22000.00, 'GBP', 0.020000, 0.7000, 25000.00, 1.0, NULL, NULL, NULL, NULL, '2023-09-10', '2028-09-10', 'Active');
 
 -- =====================================================
 -- SAMPLE DATA: PROBLEMATIC DATA (for testing DQ checks)
@@ -171,7 +171,7 @@ ALTER TABLE test_data_quality.products ADD PRIMARY KEY (product_id);
 -- Insert problematic test data
 INSERT INTO test_data_quality.clients VALUES
 (1, 'Test Corp', 'Corporate', 'Manufacturing', 'USA', 'A', NULL, 'Manager1', '2020-01-15', '2022-06-30', TRUE),  -- Old review date
-(2, NULL, 'Retail', 'Individual', 'UK', 'BBB', NULL, 'Manager2', '2019-03-20', NULL, TRUE),  -- NULL name
+(2, NULL, 'Retail', 'Retail Banking', 'UK', 'BBB', NULL, 'Manager2', '2019-03-20', NULL, TRUE),  -- NULL name
 (3, 'Duplicate Test', 'SME', NULL, 'Spain', 'BB', NULL, 'Manager3', '2021-06-10', '2024-07-20', FALSE);  -- Inactive client
 
 INSERT INTO test_data_quality.products VALUES
