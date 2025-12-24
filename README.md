@@ -11,7 +11,7 @@ In banking regulatory reporting, data accuracy is critical. This project demonst
 - Cross-table validation logic
 
 ## Tech Stack
-- PostgreSQL (adapted from SQL Server)
+- PostgreSQL
 - Basel III regulatory framework
 
 ## Files
